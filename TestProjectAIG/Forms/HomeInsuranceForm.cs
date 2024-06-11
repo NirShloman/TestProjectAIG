@@ -23,6 +23,9 @@ namespace TestProjectAIG.Views
 
         private void btnPrev_Click(object sender, EventArgs e)
         {
+            using (var insuranceOptionss = new InsuranceOptions())
+            {
+            }
             InsuranceOptions insuranceOptions = new InsuranceOptions();
             insuranceOptions.Show();
             this.Hide();
@@ -94,7 +97,5 @@ namespace TestProjectAIG.Views
             form5.Show();
             this.Hide();
         }
-
-
     }
 }

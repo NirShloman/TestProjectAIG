@@ -65,42 +65,42 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Controllers\ExcelController.cs" />
-    <Compile Include="Controllers\PolicyController.cs" />
+    <Compile Include="Services\ExcelController.cs" />
+    <Compile Include="Services\PolicyController.cs" />
     <Compile Include="Models\BasePersonalDetails.cs" />
     <Compile Include="Models\HomeInsuranceDetails.cs" />
     <Compile Include="Models\LifeInsuranceDetails.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Services\GooglePlacesService.cs" />
-    <Compile Include="Views\FinishForm.cs">
+    <Compile Include="Clients\GooglePlacesService.cs" />
+    <Compile Include="Forms\FinishForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Views\FinishForm.Designer.cs">
+    <Compile Include="Forms\FinishForm.Designer.cs">
       <DependentUpon>FinishForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\HomeInsuranceForm.cs">
+    <Compile Include="Forms\HomeInsuranceForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Views\HomeInsuranceForm.Designer.cs">
+    <Compile Include="Forms\HomeInsuranceForm.Designer.cs">
       <DependentUpon>HomeInsuranceForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\InsuranceOptions.cs">
+    <Compile Include="Forms\InsuranceOptions.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Views\InsuranceOptions.Designer.cs">
+    <Compile Include="Forms\InsuranceOptions.Designer.cs">
       <DependentUpon>InsuranceOptions.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\LifeInsuranceForm.cs">
+    <Compile Include="Forms\LifeInsuranceForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Views\LifeInsuranceForm.Designer.cs">
+    <Compile Include="Forms\LifeInsuranceForm.Designer.cs">
       <DependentUpon>LifeInsuranceForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\StartForm.cs">
+    <Compile Include="Forms\StartForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Views\StartForm.Designer.cs">
+    <Compile Include="Forms\StartForm.Designer.cs">
       <DependentUpon>StartForm.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -112,13 +112,13 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Views\HomeInsuranceForm.resx">
+    <EmbeddedResource Include="Forms\HomeInsuranceForm.resx">
       <DependentUpon>HomeInsuranceForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Views\InsuranceOptions.resx">
+    <EmbeddedResource Include="Forms\InsuranceOptions.resx">
       <DependentUpon>InsuranceOptions.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Views\LifeInsuranceForm.resx">
+    <EmbeddedResource Include="Forms\LifeInsuranceForm.resx">
       <DependentUpon>LifeInsuranceForm.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
