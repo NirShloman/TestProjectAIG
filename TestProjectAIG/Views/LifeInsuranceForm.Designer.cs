@@ -11,7 +11,18 @@ namespace TestProjectAIG.Views
         private System.ComponentModel.IContainer components = null;
         private CheckedListBox clbHobbies;
         private ComboBox cbOccupation;
-       
+        private TextBox txtFirstName;
+        private TextBox txtLastName;
+        private TextBox txtID;
+        private ComboBox cbGender;
+        private Button btnNext;
+        private Button btnPrev;
+        private Label FirstNameLabel;
+        private Label LastNameLabel;
+        private Label IdLabel;
+        private Label GenderLabel;
+        private Label HobbiesLabel;
+        private Label OccupationLabel;
         /// <summary>
         /// Clean up any resources being used.
         /// </summary>
@@ -47,10 +58,6 @@ namespace TestProjectAIG.Views
             this.GenderLabel = new System.Windows.Forms.Label();
             this.HobbiesLabel = new System.Windows.Forms.Label();
             this.OccupationLabel = new System.Windows.Forms.Label();
-            this.StreetLabel = new System.Windows.Forms.Label();
-            this.CityLabel = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // clbHobbies
@@ -119,21 +126,23 @@ namespace TestProjectAIG.Views
             // 
             // btnNext
             // 
-            this.btnNext.Location = new System.Drawing.Point(177, 382);
+            this.btnNext.Location = new System.Drawing.Point(177, 341);
             this.btnNext.Name = "btnNext";
             this.btnNext.Size = new System.Drawing.Size(75, 23);
             this.btnNext.TabIndex = 6;
             this.btnNext.Text = "Next";
             this.btnNext.UseVisualStyleBackColor = true;
+            this.btnNext.Click += btnNext_Click;
             // 
             // btnPrev
             // 
-            this.btnPrev.Location = new System.Drawing.Point(384, 382);
+            this.btnPrev.Location = new System.Drawing.Point(384, 341);
             this.btnPrev.Name = "btnPrev";
             this.btnPrev.Size = new System.Drawing.Size(75, 23);
             this.btnPrev.TabIndex = 7;
             this.btnPrev.Text = "Prev";
             this.btnPrev.UseVisualStyleBackColor = true;
+            this.btnPrev.Click += btnPrev_Click;
             // 
             // FirstNameLabel
             // 
@@ -189,45 +198,9 @@ namespace TestProjectAIG.Views
             this.OccupationLabel.TabIndex = 13;
             this.OccupationLabel.Text = ":עיסוק";
             // 
-            // StreetLabel
-            // 
-            this.StreetLabel.AutoSize = true;
-            this.StreetLabel.Location = new System.Drawing.Point(278, 292);
-            this.StreetLabel.Name = "StreetLabel";
-            this.StreetLabel.Size = new System.Drawing.Size(35, 13);
-            this.StreetLabel.TabIndex = 17;
-            this.StreetLabel.Text = ":רחוב";
-            // 
-            // CityLabel
-            // 
-            this.CityLabel.AutoSize = true;
-            this.CityLabel.Location = new System.Drawing.Point(527, 292);
-            this.CityLabel.Name = "CityLabel";
-            this.CityLabel.Size = new System.Drawing.Size(31, 13);
-            this.CityLabel.TabIndex = 16;
-            this.CityLabel.Text = ":עיר ";
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(163, 289);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 20);
-            this.textBox1.TabIndex = 15;
-            // 
-            // textBox2
-            // 
-            this.textBox2.Location = new System.Drawing.Point(421, 289);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(100, 20);
-            this.textBox2.TabIndex = 14;
-            // 
             // LifeInsuranceForm
             // 
             this.ClientSize = new System.Drawing.Size(614, 460);
-            this.Controls.Add(this.StreetLabel);
-            this.Controls.Add(this.CityLabel);
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.textBox2);
             this.Controls.Add(this.OccupationLabel);
             this.Controls.Add(this.HobbiesLabel);
             this.Controls.Add(this.GenderLabel);
@@ -251,21 +224,6 @@ namespace TestProjectAIG.Views
 
         #endregion
 
-        private TextBox txtFirstName;
-        private TextBox txtLastName;
-        private TextBox txtID;
-        private ComboBox cbGender;
-        private Button btnNext;
-        private Button btnPrev;
-        private Label FirstNameLabel;
-        private Label LastNameLabel;
-        private Label IdLabel;
-        private Label GenderLabel;
-        private Label HobbiesLabel;
-        private Label OccupationLabel;
-        private Label StreetLabel;
-        private Label CityLabel;
-        private TextBox textBox1;
-        private TextBox textBox2;
+
     }
 }

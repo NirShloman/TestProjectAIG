@@ -14,7 +14,7 @@ namespace TestProjectAIG.Services
         [Obsolete]
         public GooglePlacesService()
         {
-            _apiKey = ConfigurationSettings.AppSettings["GoogleApiKey"];
+            _apiKey = System.Configuration.ConfigurationSettings.AppSettings["GoogleApiKey"];
         }
 
         public async Task<string[]> GetPlaceAutoComplete(string input)

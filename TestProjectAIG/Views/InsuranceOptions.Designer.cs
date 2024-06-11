@@ -72,6 +72,7 @@ namespace TestProjectAIG.Views
             this.btnNext.TabIndex = 2;
             this.btnNext.Text = "Next";
             this.btnNext.UseVisualStyleBackColor = true;
+            this.btnNext.Click += btnNext_Click;
             // 
             // btnPrev
             // 
@@ -81,6 +82,7 @@ namespace TestProjectAIG.Views
             this.btnPrev.TabIndex = 3;
             this.btnPrev.Text = "Prev";
             this.btnPrev.UseVisualStyleBackColor = true;
+            this.btnPrev.Click += btnPrev_Click;
             // 
             // InsuranceOptions
             // 
