@@ -12,6 +12,9 @@ using TestProjectAIG.Services;
 using TestProjectAIG.Extensions;
 using TestProjectAIG.Controllers;
 using TestProjectAIG.Models;
+using System.ComponentModel.DataAnnotations;
+using Microsoft.Office.Interop.Excel;
+using System.IO;
 
 namespace TestProjectAIG.Views
 {
@@ -96,28 +99,89 @@ namespace TestProjectAIG.Views
 
         private void btnNext_Click(object sender, EventArgs e)
         {
-            // Continue to the next form or process the address
-            string street = txtStreet.Text;
-            string city = txtCity.Text;
-
-            PolicyService policyService = new PolicyService();
-
+            if (!HomeInsuranceValidationInput())
+            {
+                return;
+            }
             var homeInsuranceDetails = new HomeInsuranceDetails
             {
+                FirstName = txtFirstName.Text,
+                LastName = txtLastName.Text,
+                Id = txtId.Text,
+                Street = txtStreet.Text,
+                City = txtCity.Text,
                 ApartmentType = cbApartmentType.SelectedItem.ToString(),
                 StructureType = cbStructureType.SelectedItem.ToString(),
                 Age = float.Parse(txtAge.Text),
                 HomeSize = float.Parse(txtHomeSize.Text),
             };
-
+            PolicyService policyService = new PolicyService();
             double price = policyService.CalculateHomeInsurancePolicy(homeInsuranceDetails);
 
-            FinishForm finishForm = new FinishForm();
+            List<ValidationResult> results = new List<ValidationResult>();
+            ValidationContext context = new ValidationContext(homeInsuranceDetails);
 
-            finishForm.DisplayResults($"עלות הביטוח הדירה הוא: {price}");
+            bool isValid = Validator.TryValidateObject(homeInsuranceDetails, context, results, true);
 
-            finishForm.Show();
-            this.Hide();
+            if (isValid)
+            {
+                MessageBox.Show("הנתונים תקינים ונשלחו בהצלחה.");
+                FinishForm finishForm = new FinishForm();
+
+                finishForm.DisplayResults($"עלות הביטוח הדירה הוא: {price}");
+
+                finishForm.Show();
+                this.Hide();
+            }
+            else
+            {
+                string errors = string.Join(Environment.NewLine, results.Select(r => r.ErrorMessage));
+                MessageBox.Show($":אנא תקן את השגיאות הבאות\n{errors}", "שגיאות ולידציה", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        public bool HomeInsuranceValidationInput()
+        {
+            List<string> validationErrors = new List<string>();
+
+            if (string.IsNullOrWhiteSpace(txtStreet.Text))
+            {
+                validationErrors.Add("רחוב הוא שדה חובה.");
+            }
+
+            if (string.IsNullOrWhiteSpace(txtCity.Text))
+            {
+                validationErrors.Add("עיר היא שדה חובה.");
+            }
+
+            if (cbApartmentType.SelectedItem == null)
+            {
+                validationErrors.Add("סוג הדירה הוא שדה חובה.");
+            }
+
+            if (cbStructureType.SelectedItem == null)
+            {
+                validationErrors.Add("סוג המבנה הוא שדה חובה.");
+            }
+
+            if (validationErrors.Count > 0)
+            {
+                MessageBox.Show(string.Join("\n", validationErrors), "שגיאות ולידציה", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+
+            if (!float.TryParse(txtAge.Text, out float age))
+            {
+                MessageBox.Show("גיל חייב להיות מספר חוקי.", "שגיאות ולידציה", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+
+            if (!float.TryParse(txtHomeSize.Text, out float homeSize))
+            {
+                MessageBox.Show("גודל הדירה חייב להיות מספר חוקי.", "שגיאות ולידציה", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+            return true;
         }
     }
 }

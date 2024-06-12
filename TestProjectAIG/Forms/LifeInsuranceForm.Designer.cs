@@ -10,7 +10,6 @@ namespace TestProjectAIG.Views
         /// Required designer variable.
         /// </summary>
         private System.ComponentModel.IContainer components = null;
-        private CheckedListBox clbHobbies;
         private ComboBox cbOccupation;
         private TextBox txtFirstName;
         private TextBox txtLastName;
@@ -45,7 +44,6 @@ namespace TestProjectAIG.Views
         /// </summary>
         private void InitializeComponent()
         {
-            this.clbHobbies = new System.Windows.Forms.CheckedListBox();
             this.cbOccupation = new System.Windows.Forms.ComboBox();
             this.txtFirstName = new System.Windows.Forms.TextBox();
             this.txtLastName = new System.Windows.Forms.TextBox();
@@ -60,15 +58,8 @@ namespace TestProjectAIG.Views
             this.HobbiesLabel = new System.Windows.Forms.Label();
             this.OccupationLabel = new System.Windows.Forms.Label();
             this.LifeInsuranceTitle = new System.Windows.Forms.Label();
+            this.clbHobbies = new System.Windows.Forms.CheckedListBox();
             this.SuspendLayout();
-            // 
-            // clbHobbies
-            // 
-            this.clbHobbies.FormattingEnabled = true;
-            this.clbHobbies.Location = new System.Drawing.Point(662, 594);
-            this.clbHobbies.Name = "clbHobbies";
-            this.clbHobbies.Size = new System.Drawing.Size(120, 94);
-            this.clbHobbies.TabIndex = 4;
             // 
             // cbOccupation
             // 
@@ -118,6 +109,7 @@ namespace TestProjectAIG.Views
             this.btnNext.TabIndex = 6;
             this.btnNext.Text = "הבא";
             this.btnNext.UseVisualStyleBackColor = true;
+            this.btnNext.Click += btnNext_Click; 
             // 
             // btnPrev
             // 
@@ -127,6 +119,7 @@ namespace TestProjectAIG.Views
             this.btnPrev.TabIndex = 7;
             this.btnPrev.Text = "הקודם";
             this.btnPrev.UseVisualStyleBackColor = true;
+            this.btnPrev.Click += btnPrev_Click;
             // 
             // FirstNameLabel
             // 
@@ -191,9 +184,18 @@ namespace TestProjectAIG.Views
             this.LifeInsuranceTitle.TabIndex = 14;
             this.LifeInsuranceTitle.Text = ":ביטוח חיים - מילוי פרטים";
             // 
+            // clbHobbies
+            // 
+            this.clbHobbies.FormattingEnabled = true;
+            this.clbHobbies.Location = new System.Drawing.Point(362, 221);
+            this.clbHobbies.Name = "clbHobbies";
+            this.clbHobbies.Size = new System.Drawing.Size(130, 94);
+            this.clbHobbies.TabIndex = 15;
+            // 
             // LifeInsuranceForm
             // 
             this.ClientSize = new System.Drawing.Size(614, 460);
+            this.Controls.Add(this.clbHobbies);
             this.Controls.Add(this.LifeInsuranceTitle);
             this.Controls.Add(this.OccupationLabel);
             this.Controls.Add(this.HobbiesLabel);
@@ -204,7 +206,6 @@ namespace TestProjectAIG.Views
             this.Controls.Add(this.btnPrev);
             this.Controls.Add(this.btnNext);
             this.Controls.Add(this.cbOccupation);
-            this.Controls.Add(this.clbHobbies);
             this.Controls.Add(this.cbGender);
             this.Controls.Add(this.txtID);
             this.Controls.Add(this.txtLastName);
@@ -220,5 +221,6 @@ namespace TestProjectAIG.Views
         #endregion
 
         private Label LifeInsuranceTitle;
+        private CheckedListBox clbHobbies;
     }
 }

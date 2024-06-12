@@ -48,7 +48,7 @@ namespace TestProjectAIG.Views
             this.rbUI.Size = new System.Drawing.Size(187, 17);
             this.rbUI.TabIndex = 0;
             this.rbUI.TabStop = true;
-            this.rbUI.Text = "ייבוא נתונים ממשק משתמש (UI)";
+            this.rbUI.Text = "(UI) ייבוא נתונים ממשק משתמש";
             this.rbUI.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.rbUI.UseVisualStyleBackColor = true;
             // 

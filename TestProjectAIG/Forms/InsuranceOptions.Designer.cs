@@ -45,23 +45,25 @@ namespace TestProjectAIG.Views
             // rbHomeInsurance
             // 
             this.rbHomeInsurance.AutoSize = true;
+            this.rbHomeInsurance.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.rbHomeInsurance.Location = new System.Drawing.Point(151, 70);
             this.rbHomeInsurance.Name = "rbHomeInsurance";
-            this.rbHomeInsurance.Size = new System.Drawing.Size(103, 17);
+            this.rbHomeInsurance.Size = new System.Drawing.Size(84, 17);
             this.rbHomeInsurance.TabIndex = 0;
             this.rbHomeInsurance.TabStop = true;
-            this.rbHomeInsurance.Text = "Home Insurance";
+            this.rbHomeInsurance.Text = "ביטוח דירה";
             this.rbHomeInsurance.UseVisualStyleBackColor = true;
             // 
             // rbLifeInsurance
             // 
             this.rbLifeInsurance.AutoSize = true;
+            this.rbLifeInsurance.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.rbLifeInsurance.Location = new System.Drawing.Point(151, 120);
             this.rbLifeInsurance.Name = "rbLifeInsurance";
-            this.rbLifeInsurance.Size = new System.Drawing.Size(92, 17);
+            this.rbLifeInsurance.Size = new System.Drawing.Size(83, 17);
             this.rbLifeInsurance.TabIndex = 1;
             this.rbLifeInsurance.TabStop = true;
-            this.rbLifeInsurance.Text = "Life Insurance";
+            this.rbLifeInsurance.Text = "ביטוח חיים";
             this.rbLifeInsurance.UseVisualStyleBackColor = true;
             // 
             // btnNext
@@ -70,9 +72,9 @@ namespace TestProjectAIG.Views
             this.btnNext.Name = "btnNext";
             this.btnNext.Size = new System.Drawing.Size(75, 23);
             this.btnNext.TabIndex = 2;
-            this.btnNext.Text = "Next";
+            this.btnNext.Text = "הבא";
             this.btnNext.UseVisualStyleBackColor = true;
-            this.btnNext.Click += btnNext_Click;
+            this.btnNext.Click += btnNext_Click; 
             // 
             // btnPrev
             // 
@@ -80,7 +82,7 @@ namespace TestProjectAIG.Views
             this.btnPrev.Name = "btnPrev";
             this.btnPrev.Size = new System.Drawing.Size(75, 23);
             this.btnPrev.TabIndex = 3;
-            this.btnPrev.Text = "Prev";
+            this.btnPrev.Text = "הקודם";
             this.btnPrev.UseVisualStyleBackColor = true;
             this.btnPrev.Click += btnPrev_Click;
             // 

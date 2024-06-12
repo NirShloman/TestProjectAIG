@@ -20,7 +20,7 @@ namespace TestProjectAIG.Views
         private TextBox txtFirstName;
         private TextBox txtLastName;
         private Label LastNameLabel;
-        private TextBox textBox1;
+        private TextBox txtId;
         private Label IdLabel;
         private ComboBox cbGender;
         private Label GenderLabel;
@@ -57,7 +57,7 @@ namespace TestProjectAIG.Views
             this.txtFirstName = new System.Windows.Forms.TextBox();
             this.txtLastName = new System.Windows.Forms.TextBox();
             this.LastNameLabel = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtId = new System.Windows.Forms.TextBox();
             this.IdLabel = new System.Windows.Forms.Label();
             this.cbGender = new System.Windows.Forms.ComboBox();
             this.GenderLabel = new System.Windows.Forms.Label();
@@ -150,12 +150,12 @@ namespace TestProjectAIG.Views
             this.LastNameLabel.TabIndex = 6;
             this.LastNameLabel.Text = ":שם משפחה";
             // 
-            // textBox1
+            // txtId
             // 
-            this.textBox1.Location = new System.Drawing.Point(426, 151);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 20);
-            this.textBox1.TabIndex = 9;
+            this.txtId.Location = new System.Drawing.Point(426, 151);
+            this.txtId.Name = "txtId";
+            this.txtId.Size = new System.Drawing.Size(100, 20);
+            this.txtId.TabIndex = 9;
             // 
             // IdLabel
             // 
@@ -222,7 +222,7 @@ namespace TestProjectAIG.Views
             this.btnPrev.TabIndex = 15;
             this.btnPrev.Text = "הקודם";
             this.btnPrev.UseVisualStyleBackColor = true;
-            this.btnPrev.Click += btnPrev_Click; 
+            this.btnPrev.Click += btnPrev_Click;
             // 
             // FloorLabel
             // 
@@ -256,7 +256,7 @@ namespace TestProjectAIG.Views
             this.txtFloor.Size = new System.Drawing.Size(70, 20);
             this.txtFloor.TabIndex = 19;
             // 
-            // ApartmentNumber
+            // אסאApartmentNumber
             // 
             this.אסאApartmentNumber.Location = new System.Drawing.Point(81, 342);
             this.אסאApartmentNumber.Name = "אסאApartmentNumber";
@@ -371,7 +371,7 @@ namespace TestProjectAIG.Views
             this.Controls.Add(this.StreetLabel);
             this.Controls.Add(this.GenderLabel);
             this.Controls.Add(this.cbGender);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.txtId);
             this.Controls.Add(this.IdLabel);
             this.Controls.Add(this.txtLastName);
             this.Controls.Add(this.LastNameLabel);

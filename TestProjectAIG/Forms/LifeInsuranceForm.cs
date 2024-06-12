@@ -11,6 +11,8 @@ using TestProjectAIG.Controllers;
 using TestProjectAIG.Models;
 using TestProjectAIG.Extensions;
 using TestProjectAIG.Models.Mapping;
+using System.ComponentModel.DataAnnotations;
+using Microsoft.Office.Interop.Excel;
 
 namespace TestProjectAIG.Views
 {
@@ -32,14 +34,22 @@ namespace TestProjectAIG.Views
 
         private void btnNext_Click(object sender, EventArgs e)
         {
-            PolicyService policyService = new PolicyService();
+            if (!LifeInsuranceValidationInput())
+            {
+                return;
+            }
 
             var selectedHobbies = clbHobbies.CheckedItems.Cast<string>().ToList();
-            var occupation = cbOccupation.SelectedItem.ToString();
+            string occupation = cbOccupation.SelectedItem?.ToString();
+
+            PolicyService policyService = new PolicyService();
             double risk = policyService.LifeInsuranceCalculateRisk(occupation, selectedHobbies);
 
             var lifeInsuranceDetails = new LifeInsuranceDetails
             {
+                FirstName = txtFirstName.Text,
+                LastName = txtLastName.Text,
+                Id = txtID.Text,
                 Hobbies = selectedHobbies,
                 Occupation = occupation,
                 Risk = risk
@@ -47,17 +57,72 @@ namespace TestProjectAIG.Views
 
             double price = policyService.CalculateLifeInsurancePolicy(lifeInsuranceDetails);
 
-            FinishForm finishForm = new FinishForm();
-            if (risk >= 0.75)
+            List<ValidationResult> results = new List<ValidationResult>();
+            ValidationContext context = new ValidationContext(lifeInsuranceDetails);
+
+            bool isValid = Validator.TryValidateObject(lifeInsuranceDetails, context, results, true);
+
+            if (isValid)
             {
-                finishForm.DisplayResults("לא ניתן לבטח.");
+                MessageBox.Show("הנתונים תקינים ונשלחו בהצלחה.");
+                FinishForm finishForm = new FinishForm();
+                if (risk >= 0.75)
+                {
+                    finishForm.DisplayResults("לא ניתן לבטח.");
+                }
+                else
+                {
+                    finishForm.DisplayResults($"עלות ביטוח החיים הוא: {price}");
+                }
+                finishForm.Show();
+                this.Hide();
             }
             else
             {
-                finishForm.DisplayResults($"עלות הביטוח החיים הוא: {price}");
+                string errors = string.Join(Environment.NewLine, results.Select(r => r.ErrorMessage));
+                MessageBox.Show($":אנא תקן את השגיאות הבאות\n{errors}", "שגיאות ולידציה", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            finishForm.Show();
-            this.Hide();
+        }
+
+        public bool LifeInsuranceValidationInput()
+        {
+            List<string> validationErrors = new List<string>();
+
+            if (string.IsNullOrWhiteSpace(txtFirstName.Text))
+            {
+                validationErrors.Add("שם פרטי הוא שדה חובה.");
+            }
+
+            if (string.IsNullOrWhiteSpace(txtLastName.Text))
+            {
+                validationErrors.Add("שם משפחה הוא שדה חובה.");
+            }
+
+            if (string.IsNullOrWhiteSpace(txtID.Text))
+            {
+                validationErrors.Add("תעודת זהות היא שדה חובה.");
+            }
+            else if (!System.Text.RegularExpressions.Regex.IsMatch(txtID.Text, @"^\d{9}$"))
+            {
+                validationErrors.Add("תעודת זהות חייבת להיות מספר בן 9 ספרות.");
+            }
+
+            if (clbHobbies.CheckedItems.Cast<string>().ToList().Count == 0)
+            {
+                validationErrors.Add("יש לבחור לפחות תחביב אחד.");
+            }
+
+            if (string.IsNullOrWhiteSpace(cbOccupation.SelectedItem?.ToString()))
+            {
+                validationErrors.Add("עיסוק הוא שדה חובה.");
+            }
+
+            if (validationErrors.Count > 0)
+            {
+                MessageBox.Show(string.Join("\n", validationErrors), "שגיאות ולידציה", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+            return true;
         }
     }
 }

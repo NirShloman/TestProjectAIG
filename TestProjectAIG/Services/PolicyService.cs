@@ -10,6 +10,15 @@ namespace TestProjectAIG.Controllers
 {
     public class PolicyService
     {
+        public static readonly double lifeInsuranceBasePrice;
+        public static readonly double homeInsuranceBasePrice;
+
+        static PolicyService()
+        {
+            lifeInsuranceBasePrice = Double.Parse(System.Configuration.ConfigurationSettings.AppSettings["lifeInsuranceBasePrice"]);
+            homeInsuranceBasePrice = Double.Parse(System.Configuration.ConfigurationSettings.AppSettings["homeInsuranceBasePrice"]);
+        }
+
         public double LifeInsuranceCalculateRisk(string itemSelect, List<string> hobbies)
         {
             double risk = 0;
@@ -24,21 +33,17 @@ namespace TestProjectAIG.Controllers
             return risk;
         }
 
-        [Obsolete]
         public double CalculateLifeInsurancePolicy(LifeInsuranceDetails lifeDetails)
         {
-            double basePrice = Double.Parse(System.Configuration.ConfigurationSettings.AppSettings["lifeInsuranceBasePrice"]);
             double riskFactor = lifeDetails.Risk;
-            return basePrice * (1 + riskFactor);
+            return lifeInsuranceBasePrice * (1 + riskFactor);
         }
 
-        [Obsolete]
         public double CalculateHomeInsurancePolicy(HomeInsuranceDetails homeDetails)
         {
-            double basePrice = Double.Parse(System.Configuration.ConfigurationSettings.AppSettings["homeInsuranceBasePrice"]);
             double ageFactor = homeDetails.Age * 0.01;
             double sizeFactor = homeDetails.HomeSize * 0.05;
-            return basePrice + (basePrice * ageFactor) + (basePrice * sizeFactor);
+            return homeInsuranceBasePrice + (homeInsuranceBasePrice * ageFactor) + (homeInsuranceBasePrice * sizeFactor);
         }
     }
 }

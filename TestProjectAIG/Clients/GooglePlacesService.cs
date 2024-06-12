@@ -12,10 +12,9 @@ namespace TestProjectAIG.Services
 {
     public class GooglePlacesService
     {
-        private readonly string _apiKey;
+        private static readonly string _apiKey;
 
-        [Obsolete]
-        public GooglePlacesService()
+        static GooglePlacesService()
         {
             _apiKey = System.Configuration.ConfigurationSettings.AppSettings["GoogleApiKey"];
         }

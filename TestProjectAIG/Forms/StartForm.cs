@@ -3,10 +3,13 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using TestProjectAIG.Controllers;
+using TestProjectAIG.Models;
 
 namespace TestProjectAIG.Views
 {
@@ -27,13 +30,22 @@ namespace TestProjectAIG.Views
             }
             else if (rbExcel.Checked)
             {
-                /*OpenFileDialog openFileDialog = new OpenFileDialog();
+                ExcelService excelService = new ExcelService();
+                OpenFileDialog openFileDialog = new OpenFileDialog();
+                openFileDialog.Filter = "Excel Files|*.xls;*.xlsx";
                 if (openFileDialog.ShowDialog() == DialogResult.OK)
                 {
-                    ExcelController excelController = new ExcelController();
-                    var data = excelController.ImportDataFromExcel(openFileDialog.FileName);
-                    // Handle data
-                }*/
+                    string filePath = openFileDialog.FileName;
+                    if (!excelService.ExcelFileValidation(filePath))
+                    {
+                        return;
+                    }
+                    else
+                    {
+                        var data = excelService.ImportDataFromExcel(filePath);
+                        excelService.CalculatePolicyPrices(filePath, data);
+                    }
+                }
             }
         }
     }

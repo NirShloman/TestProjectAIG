@@ -22,7 +22,9 @@ namespace TestProjectAIG.Models
         [RegularExpression(@"^\d{9}$", ErrorMessage = "תעודת זהות חייבת להיות מספר בן 9 ספרות")]
         public string Id { get; set; }
 
+        [Required(ErrorMessage = "גיל הוא שדה חובה")]
         public float Age { get; set; }
+
         public string Gender { get; set; }
     }
 }
