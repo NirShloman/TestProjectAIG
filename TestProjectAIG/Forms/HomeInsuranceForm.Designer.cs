@@ -65,11 +65,26 @@ namespace TestProjectAIG.Views
             this.CityLabel = new System.Windows.Forms.Label();
             this.btnNext = new System.Windows.Forms.Button();
             this.btnPrev = new System.Windows.Forms.Button();
+            this.FloorLabel = new System.Windows.Forms.Label();
+            this.txtHouseNumber = new System.Windows.Forms.TextBox();
+            this.HouseNumberLabel = new System.Windows.Forms.Label();
+            this.txtFloor = new System.Windows.Forms.TextBox();
+            this.אסאApartmentNumber = new System.Windows.Forms.TextBox();
+            this.ApartmentNumberLabel = new System.Windows.Forms.Label();
+            this.txtAge = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.ApartmentTypeLabel = new System.Windows.Forms.Label();
+            this.cbApartmentType = new System.Windows.Forms.ComboBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.cbStructureType = new System.Windows.Forms.ComboBox();
+            this.HomeInsuranceTitle = new System.Windows.Forms.Label();
+            this.txtHomeSize = new System.Windows.Forms.TextBox();
+            this.HomeSizeLabel = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // txtStreet
             // 
-            this.txtStreet.Location = new System.Drawing.Point(30, 183);
+            this.txtStreet.Location = new System.Drawing.Point(58, 198);
             this.txtStreet.Name = "txtStreet";
             this.txtStreet.Size = new System.Drawing.Size(200, 20);
             this.txtStreet.TabIndex = 0;
@@ -78,7 +93,7 @@ namespace TestProjectAIG.Views
             // lbStreetSuggestions
             // 
             this.lbStreetSuggestions.FormattingEnabled = true;
-            this.lbStreetSuggestions.Location = new System.Drawing.Point(30, 213);
+            this.lbStreetSuggestions.Location = new System.Drawing.Point(58, 228);
             this.lbStreetSuggestions.Name = "lbStreetSuggestions";
             this.lbStreetSuggestions.Size = new System.Drawing.Size(200, 95);
             this.lbStreetSuggestions.TabIndex = 1;
@@ -87,7 +102,7 @@ namespace TestProjectAIG.Views
             // 
             // txtCity
             // 
-            this.txtCity.Location = new System.Drawing.Point(338, 183);
+            this.txtCity.Location = new System.Drawing.Point(366, 198);
             this.txtCity.Name = "txtCity";
             this.txtCity.Size = new System.Drawing.Size(200, 20);
             this.txtCity.TabIndex = 2;
@@ -96,7 +111,7 @@ namespace TestProjectAIG.Views
             // lbCitySuggestions
             // 
             this.lbCitySuggestions.FormattingEnabled = true;
-            this.lbCitySuggestions.Location = new System.Drawing.Point(338, 213);
+            this.lbCitySuggestions.Location = new System.Drawing.Point(366, 228);
             this.lbCitySuggestions.Name = "lbCitySuggestions";
             this.lbCitySuggestions.Size = new System.Drawing.Size(200, 95);
             this.lbCitySuggestions.TabIndex = 3;
@@ -106,7 +121,7 @@ namespace TestProjectAIG.Views
             // FirstNameLabel
             // 
             this.FirstNameLabel.AutoSize = true;
-            this.FirstNameLabel.Location = new System.Drawing.Point(526, 34);
+            this.FirstNameLabel.Location = new System.Drawing.Point(554, 95);
             this.FirstNameLabel.Name = "FirstNameLabel";
             this.FirstNameLabel.Size = new System.Drawing.Size(54, 13);
             this.FirstNameLabel.TabIndex = 4;
@@ -114,14 +129,14 @@ namespace TestProjectAIG.Views
             // 
             // txtFirstName
             // 
-            this.txtFirstName.Location = new System.Drawing.Point(398, 31);
+            this.txtFirstName.Location = new System.Drawing.Point(426, 92);
             this.txtFirstName.Name = "txtFirstName";
             this.txtFirstName.Size = new System.Drawing.Size(100, 20);
             this.txtFirstName.TabIndex = 5;
             // 
             // txtLastName
             // 
-            this.txtLastName.Location = new System.Drawing.Point(149, 31);
+            this.txtLastName.Location = new System.Drawing.Point(177, 92);
             this.txtLastName.Name = "txtLastName";
             this.txtLastName.Size = new System.Drawing.Size(100, 20);
             this.txtLastName.TabIndex = 7;
@@ -129,7 +144,7 @@ namespace TestProjectAIG.Views
             // LastNameLabel
             // 
             this.LastNameLabel.AutoSize = true;
-            this.LastNameLabel.Location = new System.Drawing.Point(277, 34);
+            this.LastNameLabel.Location = new System.Drawing.Point(305, 95);
             this.LastNameLabel.Name = "LastNameLabel";
             this.LastNameLabel.Size = new System.Drawing.Size(66, 13);
             this.LastNameLabel.TabIndex = 6;
@@ -137,7 +152,7 @@ namespace TestProjectAIG.Views
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(398, 90);
+            this.textBox1.Location = new System.Drawing.Point(426, 151);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(100, 20);
             this.textBox1.TabIndex = 9;
@@ -145,7 +160,7 @@ namespace TestProjectAIG.Views
             // IdLabel
             // 
             this.IdLabel.AutoSize = true;
-            this.IdLabel.Location = new System.Drawing.Point(534, 93);
+            this.IdLabel.Location = new System.Drawing.Point(562, 154);
             this.IdLabel.Name = "IdLabel";
             this.IdLabel.Size = new System.Drawing.Size(46, 13);
             this.IdLabel.TabIndex = 8;
@@ -154,7 +169,10 @@ namespace TestProjectAIG.Views
             // cbGender
             // 
             this.cbGender.FormattingEnabled = true;
-            this.cbGender.Location = new System.Drawing.Point(128, 89);
+            this.cbGender.Items.AddRange(new object[] {
+            "זכר",
+            "נקבה"});
+            this.cbGender.Location = new System.Drawing.Point(221, 150);
             this.cbGender.Name = "cbGender";
             this.cbGender.Size = new System.Drawing.Size(121, 21);
             this.cbGender.TabIndex = 10;
@@ -162,7 +180,7 @@ namespace TestProjectAIG.Views
             // GenderLabel
             // 
             this.GenderLabel.AutoSize = true;
-            this.GenderLabel.Location = new System.Drawing.Point(295, 93);
+            this.GenderLabel.Location = new System.Drawing.Point(371, 155);
             this.GenderLabel.Name = "GenderLabel";
             this.GenderLabel.Size = new System.Drawing.Size(27, 13);
             this.GenderLabel.TabIndex = 11;
@@ -171,7 +189,7 @@ namespace TestProjectAIG.Views
             // StreetLabel
             // 
             this.StreetLabel.AutoSize = true;
-            this.StreetLabel.Location = new System.Drawing.Point(236, 186);
+            this.StreetLabel.Location = new System.Drawing.Point(264, 201);
             this.StreetLabel.Name = "StreetLabel";
             this.StreetLabel.Size = new System.Drawing.Size(61, 13);
             this.StreetLabel.TabIndex = 12;
@@ -180,7 +198,7 @@ namespace TestProjectAIG.Views
             // CityLabel
             // 
             this.CityLabel.AutoSize = true;
-            this.CityLabel.Location = new System.Drawing.Point(544, 190);
+            this.CityLabel.Location = new System.Drawing.Point(572, 205);
             this.CityLabel.Name = "CityLabel";
             this.CityLabel.Size = new System.Drawing.Size(54, 13);
             this.CityLabel.TabIndex = 13;
@@ -188,29 +206,165 @@ namespace TestProjectAIG.Views
             // 
             // btnNext
             // 
-            this.btnNext.Location = new System.Drawing.Point(159, 380);
+            this.btnNext.Location = new System.Drawing.Point(195, 491);
             this.btnNext.Name = "btnNext";
             this.btnNext.Size = new System.Drawing.Size(75, 23);
             this.btnNext.TabIndex = 14;
-            this.btnNext.Text = "Next";
+            this.btnNext.Text = "הבא";
             this.btnNext.UseVisualStyleBackColor = true;
             this.btnNext.Click += btnNext_Click;
-
             // 
             // btnPrev
             // 
-            this.btnPrev.Location = new System.Drawing.Point(338, 380);
+            this.btnPrev.Location = new System.Drawing.Point(374, 491);
             this.btnPrev.Name = "btnPrev";
             this.btnPrev.Size = new System.Drawing.Size(75, 23);
             this.btnPrev.TabIndex = 15;
-            this.btnPrev.Text = "Prev";
+            this.btnPrev.Text = "הקודם";
             this.btnPrev.UseVisualStyleBackColor = true;
-            this.btnPrev.Click += btnPrev_Click;
-            
+            this.btnPrev.Click += btnPrev_Click; 
+            // 
+            // FloorLabel
+            // 
+            this.FloorLabel.AutoSize = true;
+            this.FloorLabel.Location = new System.Drawing.Point(380, 345);
+            this.FloorLabel.Name = "FloorLabel";
+            this.FloorLabel.Size = new System.Drawing.Size(36, 13);
+            this.FloorLabel.TabIndex = 18;
+            this.FloorLabel.Text = ":קומה";
+            // 
+            // txtHouseNumber
+            // 
+            this.txtHouseNumber.Location = new System.Drawing.Point(474, 342);
+            this.txtHouseNumber.Name = "txtHouseNumber";
+            this.txtHouseNumber.Size = new System.Drawing.Size(70, 20);
+            this.txtHouseNumber.TabIndex = 17;
+            // 
+            // HouseNumberLabel
+            // 
+            this.HouseNumberLabel.AutoSize = true;
+            this.HouseNumberLabel.Location = new System.Drawing.Point(572, 345);
+            this.HouseNumberLabel.Name = "HouseNumberLabel";
+            this.HouseNumberLabel.Size = new System.Drawing.Size(48, 13);
+            this.HouseNumberLabel.TabIndex = 16;
+            this.HouseNumberLabel.Text = ":מס\' בית";
+            // 
+            // txtFloor
+            // 
+            this.txtFloor.Location = new System.Drawing.Point(287, 342);
+            this.txtFloor.Name = "txtFloor";
+            this.txtFloor.Size = new System.Drawing.Size(70, 20);
+            this.txtFloor.TabIndex = 19;
+            // 
+            // ApartmentNumber
+            // 
+            this.אסאApartmentNumber.Location = new System.Drawing.Point(81, 342);
+            this.אסאApartmentNumber.Name = "אסאApartmentNumber";
+            this.אסאApartmentNumber.Size = new System.Drawing.Size(70, 20);
+            this.אסאApartmentNumber.TabIndex = 21;
+            // 
+            // ApartmentNumberLabel
+            // 
+            this.ApartmentNumberLabel.AutoSize = true;
+            this.ApartmentNumberLabel.Location = new System.Drawing.Point(174, 345);
+            this.ApartmentNumberLabel.Name = "ApartmentNumberLabel";
+            this.ApartmentNumberLabel.Size = new System.Drawing.Size(54, 13);
+            this.ApartmentNumberLabel.TabIndex = 20;
+            this.ApartmentNumberLabel.Text = ":מס\' דירה";
+            // 
+            // txtAge
+            // 
+            this.txtAge.Location = new System.Drawing.Point(73, 151);
+            this.txtAge.Name = "txtAge";
+            this.txtAge.Size = new System.Drawing.Size(58, 20);
+            this.txtAge.TabIndex = 23;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(137, 154);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(28, 13);
+            this.label1.TabIndex = 22;
+            this.label1.Text = ":גיל";
+            // 
+            // ApartmentTypeLabel
+            // 
+            this.ApartmentTypeLabel.AutoSize = true;
+            this.ApartmentTypeLabel.Location = new System.Drawing.Point(583, 398);
+            this.ApartmentTypeLabel.Name = "ApartmentTypeLabel";
+            this.ApartmentTypeLabel.Size = new System.Drawing.Size(63, 13);
+            this.ApartmentTypeLabel.TabIndex = 25;
+            this.ApartmentTypeLabel.Text = ":סוג הדירה";
+            // 
+            // cbApartmentType
+            // 
+            this.cbApartmentType.FormattingEnabled = true;
+            this.cbApartmentType.Location = new System.Drawing.Point(451, 393);
+            this.cbApartmentType.Name = "cbApartmentType";
+            this.cbApartmentType.Size = new System.Drawing.Size(121, 21);
+            this.cbApartmentType.TabIndex = 24;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(352, 401);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(64, 13);
+            this.label2.TabIndex = 27;
+            this.label2.Text = ":סוג המבנה";
+            // 
+            // cbStructureType
+            // 
+            this.cbStructureType.FormattingEnabled = true;
+            this.cbStructureType.Location = new System.Drawing.Point(248, 393);
+            this.cbStructureType.Name = "cbStructureType";
+            this.cbStructureType.Size = new System.Drawing.Size(98, 21);
+            this.cbStructureType.TabIndex = 26;
+            // 
+            // HomeInsuranceTitle
+            // 
+            this.HomeInsuranceTitle.AutoSize = true;
+            this.HomeInsuranceTitle.Location = new System.Drawing.Point(285, 31);
+            this.HomeInsuranceTitle.Name = "HomeInsuranceTitle";
+            this.HomeInsuranceTitle.Size = new System.Drawing.Size(139, 13);
+            this.HomeInsuranceTitle.TabIndex = 28;
+            this.HomeInsuranceTitle.Text = "ביטוח דירה - מילוי פרטים";
+            // 
+            // txtHomeSize
+            // 
+            this.txtHomeSize.Location = new System.Drawing.Point(47, 394);
+            this.txtHomeSize.Name = "txtHomeSize";
+            this.txtHomeSize.Size = new System.Drawing.Size(70, 20);
+            this.txtHomeSize.TabIndex = 30;
+            // 
+            // HomeSizeLabel
+            // 
+            this.HomeSizeLabel.AutoSize = true;
+            this.HomeSizeLabel.Location = new System.Drawing.Point(123, 398);
+            this.HomeSizeLabel.Name = "HomeSizeLabel";
+            this.HomeSizeLabel.Size = new System.Drawing.Size(97, 13);
+            this.HomeSizeLabel.TabIndex = 29;
+            this.HomeSizeLabel.Text = ":גודל הדירה (מ\"ר)";
             // 
             // HomeInsuranceForm
             // 
-            this.ClientSize = new System.Drawing.Size(614, 460);
+            this.ClientSize = new System.Drawing.Size(699, 568);
+            this.Controls.Add(this.txtHomeSize);
+            this.Controls.Add(this.HomeSizeLabel);
+            this.Controls.Add(this.HomeInsuranceTitle);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.cbStructureType);
+            this.Controls.Add(this.ApartmentTypeLabel);
+            this.Controls.Add(this.cbApartmentType);
+            this.Controls.Add(this.txtAge);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.אסאApartmentNumber);
+            this.Controls.Add(this.ApartmentNumberLabel);
+            this.Controls.Add(this.txtFloor);
+            this.Controls.Add(this.FloorLabel);
+            this.Controls.Add(this.txtHouseNumber);
+            this.Controls.Add(this.HouseNumberLabel);
             this.Controls.Add(this.btnPrev);
             this.Controls.Add(this.btnNext);
             this.Controls.Add(this.CityLabel);
@@ -235,6 +389,20 @@ namespace TestProjectAIG.Views
         }
 
         #endregion
-
+        private Label FloorLabel;
+        private TextBox txtHouseNumber;
+        private Label HouseNumberLabel;
+        private TextBox txtFloor;
+        private TextBox אסאApartmentNumber;
+        private Label ApartmentNumberLabel;
+        private TextBox txtAge;
+        private Label label1;
+        private Label ApartmentTypeLabel;
+        private ComboBox cbApartmentType;
+        private Label label2;
+        private ComboBox cbStructureType;
+        private Label HomeInsuranceTitle;
+        private TextBox txtHomeSize;
+        private Label HomeSizeLabel;
     }
 }

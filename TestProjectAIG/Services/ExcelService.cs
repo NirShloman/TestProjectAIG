@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace TestProjectAIG.Controllers
 {
-    public class ExcelController
+    public class ExcelService
     {
         /*public List<PersonalData> ImportDataFromExcel(string filePath)
         {

@@ -40,6 +40,10 @@
     <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Buffers.4.5.1\lib\net461\System.Buffers.dll</HintPath>
     </Reference>
+    <Reference Include="System.ComponentModel.Annotations, Version=4.2.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.ComponentModel.Annotations.5.0.0\lib\net461\System.ComponentModel.Annotations.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Memory, Version=4.0.1.2, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Memory.4.5.5\lib\net461\System.Memory.dll</HintPath>
@@ -65,9 +69,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Services\ExcelController.cs" />
-    <Compile Include="Services\PolicyController.cs" />
-    <Compile Include="Models\BasePersonalDetails.cs" />
+    <Compile Include="Extensions\LoadItemsExtension.cs" />
+    <Compile Include="Models\Common\AddressDetails.cs" />
+    <Compile Include="Models\Mapping\HomeInsuranceRiskItemsMapping.cs" />
+    <Compile Include="Models\Mapping\LifeInsuranceRiskItemsMapping.cs" />
+    <Compile Include="Models\PlacesPredictions\GooglePlacesResponses.cs" />
+    <Compile Include="Models\PlacesPredictions\GooglePlacesPredictions.cs" />
+    <Compile Include="Services\ExcelService.cs" />
+    <Compile Include="Services\PolicyService.cs" />
+    <Compile Include="Models\Common\BasePersonalDetails.cs" />
     <Compile Include="Models\HomeInsuranceDetails.cs" />
     <Compile Include="Models\LifeInsuranceDetails.cs" />
     <Compile Include="Program.cs" />
@@ -103,6 +113,9 @@
     <Compile Include="Forms\StartForm.Designer.cs">
       <DependentUpon>StartForm.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Forms\StartForm.resx">
+      <DependentUpon>StartForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -135,8 +148,6 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Utils\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

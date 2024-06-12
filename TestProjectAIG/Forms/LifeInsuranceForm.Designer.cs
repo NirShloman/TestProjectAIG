@@ -1,5 +1,6 @@
 ﻿using System.Drawing;
 using System.Windows.Forms;
+using TestProjectAIG.Models;
 
 namespace TestProjectAIG.Views
 {
@@ -58,23 +59,13 @@ namespace TestProjectAIG.Views
             this.GenderLabel = new System.Windows.Forms.Label();
             this.HobbiesLabel = new System.Windows.Forms.Label();
             this.OccupationLabel = new System.Windows.Forms.Label();
+            this.LifeInsuranceTitle = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // clbHobbies
             // 
             this.clbHobbies.FormattingEnabled = true;
-            this.clbHobbies.Items.AddRange(new object[] {
-            "Diving",
-            "Motorcycles",
-            "Skydiving",
-            "Bungee Jumping",
-            "Mountain Climbing",
-            "Scuba Diving",
-            "Skiing",
-            "Snowboarding",
-            "Surfing",
-            "Windsurfing"});
-            this.clbHobbies.Location = new System.Drawing.Point(401, 163);
+            this.clbHobbies.Location = new System.Drawing.Point(662, 594);
             this.clbHobbies.Name = "clbHobbies";
             this.clbHobbies.Size = new System.Drawing.Size(120, 94);
             this.clbHobbies.TabIndex = 4;
@@ -82,33 +73,28 @@ namespace TestProjectAIG.Views
             // cbOccupation
             // 
             this.cbOccupation.FormattingEnabled = true;
-            this.cbOccupation.Items.AddRange(new object[] {
-            "Soldier",
-            "Teacher",
-            "Skydiver",
-            "Office Worker"});
-            this.cbOccupation.Location = new System.Drawing.Point(142, 160);
+            this.cbOccupation.Location = new System.Drawing.Point(105, 221);
             this.cbOccupation.Name = "cbOccupation";
             this.cbOccupation.Size = new System.Drawing.Size(121, 21);
             this.cbOccupation.TabIndex = 5;
             // 
             // txtFirstName
             // 
-            this.txtFirstName.Location = new System.Drawing.Point(421, 33);
+            this.txtFirstName.Location = new System.Drawing.Point(384, 94);
             this.txtFirstName.Name = "txtFirstName";
             this.txtFirstName.Size = new System.Drawing.Size(100, 20);
             this.txtFirstName.TabIndex = 0;
             // 
             // txtLastName
             // 
-            this.txtLastName.Location = new System.Drawing.Point(163, 33);
+            this.txtLastName.Location = new System.Drawing.Point(126, 94);
             this.txtLastName.Name = "txtLastName";
             this.txtLastName.Size = new System.Drawing.Size(100, 20);
             this.txtLastName.TabIndex = 1;
             // 
             // txtID
             // 
-            this.txtID.Location = new System.Drawing.Point(421, 80);
+            this.txtID.Location = new System.Drawing.Point(384, 141);
             this.txtID.Name = "txtID";
             this.txtID.Size = new System.Drawing.Size(100, 20);
             this.txtID.TabIndex = 2;
@@ -117,9 +103,9 @@ namespace TestProjectAIG.Views
             // 
             this.cbGender.FormattingEnabled = true;
             this.cbGender.Items.AddRange(new object[] {
-            "Male",
-            "Female"});
-            this.cbGender.Location = new System.Drawing.Point(163, 79);
+            "זכר",
+            "נקבה"});
+            this.cbGender.Location = new System.Drawing.Point(126, 140);
             this.cbGender.Name = "cbGender";
             this.cbGender.Size = new System.Drawing.Size(100, 21);
             this.cbGender.TabIndex = 3;
@@ -130,9 +116,8 @@ namespace TestProjectAIG.Views
             this.btnNext.Name = "btnNext";
             this.btnNext.Size = new System.Drawing.Size(75, 23);
             this.btnNext.TabIndex = 6;
-            this.btnNext.Text = "Next";
+            this.btnNext.Text = "הבא";
             this.btnNext.UseVisualStyleBackColor = true;
-            this.btnNext.Click += btnNext_Click;
             // 
             // btnPrev
             // 
@@ -140,14 +125,13 @@ namespace TestProjectAIG.Views
             this.btnPrev.Name = "btnPrev";
             this.btnPrev.Size = new System.Drawing.Size(75, 23);
             this.btnPrev.TabIndex = 7;
-            this.btnPrev.Text = "Prev";
+            this.btnPrev.Text = "הקודם";
             this.btnPrev.UseVisualStyleBackColor = true;
-            this.btnPrev.Click += btnPrev_Click;
             // 
             // FirstNameLabel
             // 
             this.FirstNameLabel.AutoSize = true;
-            this.FirstNameLabel.Location = new System.Drawing.Point(527, 36);
+            this.FirstNameLabel.Location = new System.Drawing.Point(490, 97);
             this.FirstNameLabel.Name = "FirstNameLabel";
             this.FirstNameLabel.Size = new System.Drawing.Size(54, 13);
             this.FirstNameLabel.TabIndex = 8;
@@ -156,7 +140,7 @@ namespace TestProjectAIG.Views
             // LastNameLabel
             // 
             this.LastNameLabel.AutoSize = true;
-            this.LastNameLabel.Location = new System.Drawing.Point(278, 36);
+            this.LastNameLabel.Location = new System.Drawing.Point(241, 97);
             this.LastNameLabel.Name = "LastNameLabel";
             this.LastNameLabel.Size = new System.Drawing.Size(66, 13);
             this.LastNameLabel.TabIndex = 9;
@@ -165,7 +149,7 @@ namespace TestProjectAIG.Views
             // IdLabel
             // 
             this.IdLabel.AutoSize = true;
-            this.IdLabel.Location = new System.Drawing.Point(535, 87);
+            this.IdLabel.Location = new System.Drawing.Point(498, 148);
             this.IdLabel.Name = "IdLabel";
             this.IdLabel.Size = new System.Drawing.Size(46, 13);
             this.IdLabel.TabIndex = 10;
@@ -174,7 +158,7 @@ namespace TestProjectAIG.Views
             // GenderLabel
             // 
             this.GenderLabel.AutoSize = true;
-            this.GenderLabel.Location = new System.Drawing.Point(317, 83);
+            this.GenderLabel.Location = new System.Drawing.Point(280, 144);
             this.GenderLabel.Name = "GenderLabel";
             this.GenderLabel.Size = new System.Drawing.Size(27, 13);
             this.GenderLabel.TabIndex = 11;
@@ -183,7 +167,7 @@ namespace TestProjectAIG.Views
             // HobbiesLabel
             // 
             this.HobbiesLabel.AutoSize = true;
-            this.HobbiesLabel.Location = new System.Drawing.Point(535, 163);
+            this.HobbiesLabel.Location = new System.Drawing.Point(498, 224);
             this.HobbiesLabel.Name = "HobbiesLabel";
             this.HobbiesLabel.Size = new System.Drawing.Size(55, 13);
             this.HobbiesLabel.TabIndex = 12;
@@ -192,15 +176,25 @@ namespace TestProjectAIG.Views
             // OccupationLabel
             // 
             this.OccupationLabel.AutoSize = true;
-            this.OccupationLabel.Location = new System.Drawing.Point(303, 163);
+            this.OccupationLabel.Location = new System.Drawing.Point(266, 224);
             this.OccupationLabel.Name = "OccupationLabel";
             this.OccupationLabel.Size = new System.Drawing.Size(41, 13);
             this.OccupationLabel.TabIndex = 13;
             this.OccupationLabel.Text = ":עיסוק";
             // 
+            // LifeInsuranceTitle
+            // 
+            this.LifeInsuranceTitle.AutoSize = true;
+            this.LifeInsuranceTitle.Location = new System.Drawing.Point(298, 27);
+            this.LifeInsuranceTitle.Name = "LifeInsuranceTitle";
+            this.LifeInsuranceTitle.Size = new System.Drawing.Size(141, 13);
+            this.LifeInsuranceTitle.TabIndex = 14;
+            this.LifeInsuranceTitle.Text = ":ביטוח חיים - מילוי פרטים";
+            // 
             // LifeInsuranceForm
             // 
             this.ClientSize = new System.Drawing.Size(614, 460);
+            this.Controls.Add(this.LifeInsuranceTitle);
             this.Controls.Add(this.OccupationLabel);
             this.Controls.Add(this.HobbiesLabel);
             this.Controls.Add(this.GenderLabel);
@@ -222,8 +216,9 @@ namespace TestProjectAIG.Views
 
         }
 
+
         #endregion
 
-
+        private Label LifeInsuranceTitle;
     }
 }

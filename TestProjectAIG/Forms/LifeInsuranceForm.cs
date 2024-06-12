@@ -9,6 +9,8 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using TestProjectAIG.Controllers;
 using TestProjectAIG.Models;
+using TestProjectAIG.Extensions;
+using TestProjectAIG.Models.Mapping;
 
 namespace TestProjectAIG.Views
 {
@@ -17,6 +19,8 @@ namespace TestProjectAIG.Views
         public LifeInsuranceForm()
         {
             InitializeComponent();
+            this.clbHobbies.LoadItemsToCheckedListBox(LifeInsuranceRiskItemsMapping.Hobbies.Keys.ToList());
+            this.cbOccupation.LoadItemsToComboBox(LifeInsuranceRiskItemsMapping.Occupations.Keys.ToList());
         }
 
         private void btnPrev_Click(object sender, EventArgs e)
@@ -28,17 +32,11 @@ namespace TestProjectAIG.Views
 
         private void btnNext_Click(object sender, EventArgs e)
         {
-            var personalData = new BasePersonalDetails
-            {
-                FirstName = txtFirstName.Text,
-                LastName = txtLastName.Text,
-                Id = txtID.Text,
-                Gender = cbGender.SelectedItem.ToString()
-            };
+            PolicyService policyService = new PolicyService();
 
             var selectedHobbies = clbHobbies.CheckedItems.Cast<string>().ToList();
             var occupation = cbOccupation.SelectedItem.ToString();
-            double risk = CalculateRisk(occupation, selectedHobbies);
+            double risk = policyService.LifeInsuranceCalculateRisk(occupation, selectedHobbies);
 
             var lifeInsuranceDetails = new LifeInsuranceDetails
             {
@@ -47,56 +45,19 @@ namespace TestProjectAIG.Views
                 Risk = risk
             };
 
-            PolicyController policyController = new PolicyController();
-            double price = policyController.CalculateLifeInsurancePolicy(lifeInsuranceDetails);
+            double price = policyService.CalculateLifeInsurancePolicy(lifeInsuranceDetails);
 
             FinishForm finishForm = new FinishForm();
             if (risk >= 0.75)
             {
-                finishForm.DisplayResults("Cannot insure due to high risk.");
+                finishForm.DisplayResults("לא ניתן לבטח.");
             }
             else
             {
-                finishForm.DisplayResults($"Insurance Price: {price}");
+                finishForm.DisplayResults($"עלות הביטוח החיים הוא: {price}");
             }
             finishForm.Show();
             this.Hide();
-        }
-
-        private double CalculateRisk(string occupation, List<string> hobbies)
-        {
-            double risk = 0;
-
-            switch (occupation)
-            {
-                case "Soldier":
-                    risk += 0.30;
-                    break;
-
-                case "Teacher":
-                    risk += 0;
-                    break;
-
-                case "Skydiver":
-                    risk += 0.50;
-                    break;
-            }
-
-            foreach (var hobby in hobbies)
-            {
-                switch (hobby)
-                {
-                    case "Diving":
-                        risk += 0.10;
-                        break;
-
-                    case "Motorcycles":
-                        risk += 0.20;
-                        break;
-                }
-            }
-
-            return risk;
         }
     }
 }

@@ -34,53 +34,57 @@ namespace TestProjectAIG.Views
         /// </summary>
         private void InitializeComponent()
         {
-            rbUI = new RadioButton();
-            rbExcel = new RadioButton();
-            btnNext = new Button();
-            SuspendLayout();
+            this.rbUI = new System.Windows.Forms.RadioButton();
+            this.rbExcel = new System.Windows.Forms.RadioButton();
+            this.btnNext = new System.Windows.Forms.Button();
+            this.SuspendLayout();
             // 
             // rbUI
             // 
-            rbUI.AutoSize = true;
-            rbUI.Location = new Point(162, 72);
-            rbUI.Name = "rbUI";
-            rbUI.Size = new Size(67, 19);
-            rbUI.TabIndex = 0;
-            rbUI.TabStop = true;
-            rbUI.Text = "UI Input";
-            rbUI.UseVisualStyleBackColor = true;
+            this.rbUI.AutoSize = true;
+            this.rbUI.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.rbUI.Location = new System.Drawing.Point(162, 72);
+            this.rbUI.Name = "rbUI";
+            this.rbUI.Size = new System.Drawing.Size(187, 17);
+            this.rbUI.TabIndex = 0;
+            this.rbUI.TabStop = true;
+            this.rbUI.Text = "ייבוא נתונים ממשק משתמש (UI)";
+            this.rbUI.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.rbUI.UseVisualStyleBackColor = true;
             // 
             // rbExcel
             // 
-            rbExcel.AutoSize = true;
-            rbExcel.Location = new Point(162, 122);
-            rbExcel.Name = "rbExcel";
-            rbExcel.Size = new Size(82, 19);
-            rbExcel.TabIndex = 1;
-            rbExcel.TabStop = true;
-            rbExcel.Text = "Excel Input";
-            rbExcel.UseVisualStyleBackColor = true;
+            this.rbExcel.AutoSize = true;
+            this.rbExcel.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.rbExcel.Location = new System.Drawing.Point(162, 122);
+            this.rbExcel.Name = "rbExcel";
+            this.rbExcel.Size = new System.Drawing.Size(131, 17);
+            this.rbExcel.TabIndex = 1;
+            this.rbExcel.TabStop = true;
+            this.rbExcel.Text = "ייבוא נתונים מאקסל";
+            this.rbExcel.UseVisualStyleBackColor = true;
             // 
             // btnNext
             // 
-            btnNext.Location = new Point(162, 190);
-            btnNext.Name = "btnNext";
-            btnNext.Size = new Size(75, 23);
-            btnNext.TabIndex = 2;
-            btnNext.Text = "Next";
-            btnNext.UseVisualStyleBackColor = true;
-            btnNext.Click += btnNext_Click;
+            this.btnNext.Location = new System.Drawing.Point(162, 190);
+            this.btnNext.Name = "btnNext";
+            this.btnNext.Size = new System.Drawing.Size(75, 23);
+            this.btnNext.TabIndex = 2;
+            this.btnNext.Text = "הבא";
+            this.btnNext.UseVisualStyleBackColor = true;
+            this.btnNext.Click += btnNext_Click;
             // 
             // StartForm
             // 
-            ClientSize = new Size(418, 333);
-            Controls.Add(btnNext);
-            Controls.Add(rbExcel);
-            Controls.Add(rbUI);
-            Name = "StartForm";
-            Text = "Select Input Method";
-            ResumeLayout(false);
-            PerformLayout();
+            this.ClientSize = new System.Drawing.Size(418, 333);
+            this.Controls.Add(this.btnNext);
+            this.Controls.Add(this.rbExcel);
+            this.Controls.Add(this.rbUI);
+            this.Name = "StartForm";
+            this.Text = "Select Input Method";
+            this.ResumeLayout(false);
+            this.PerformLayout();
+
         }
 
 

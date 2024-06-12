@@ -1,9 +1,12 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Configuration;
 using System.Net.Http;
 using System.Threading.Tasks;
 using System.Web;
+using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
+using TestProjectAIG.Models.PlacesPredictions;
 
 namespace TestProjectAIG.Services
 {
@@ -17,7 +20,7 @@ namespace TestProjectAIG.Services
             _apiKey = System.Configuration.ConfigurationSettings.AppSettings["GoogleApiKey"];
         }
 
-        public async Task<string[]> GetPlaceAutoComplete(string input)
+        public async Task<List<string>> GetPlaceAutoComplete(string input)
         {
             string url = $"https://maps.googleapis.com/maps/api/place/autocomplete/json?input={Uri.EscapeDataString(input)}&key={_apiKey}&types=geocode";
             using (HttpClient client = new HttpClient())
@@ -27,13 +30,13 @@ namespace TestProjectAIG.Services
                 {
                     string json = await response.Content.ReadAsStringAsync();
                     JObject data = JObject.Parse(json);
-                    JArray predictions = (JArray)data["predictions"];
-                    string[] results = new string[predictions.Count];
-                    for (int i = 0; i < predictions.Count; i++)
+                    var predictionsResponse = JsonConvert.DeserializeObject<GooglePlacesPredictions>(json);
+                    var placesList = new List<string>();
+                    foreach (var place in predictionsResponse.Predictions)
                     {
-                        results[i] = predictions[i]["description"].ToString();
+                        placesList.Add(place.Description);
                     }
-                    return results;
+                    return placesList;
                 }
                 return null;
             }

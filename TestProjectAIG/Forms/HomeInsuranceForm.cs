@@ -7,7 +7,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using TestProjectAIG.Models.Mapping;
 using TestProjectAIG.Services;
+using TestProjectAIG.Extensions;
+using TestProjectAIG.Controllers;
+using TestProjectAIG.Models;
 
 namespace TestProjectAIG.Views
 {
@@ -15,9 +19,12 @@ namespace TestProjectAIG.Views
     {
         private GooglePlacesService googlePlacesService;
 
+        [Obsolete]
         public HomeInsuranceForm()
         {
             InitializeComponent();
+            this.cbStructureType.LoadItemsToComboBox(HomeInsuranceRiskItemsMapping.StructureType.Keys.ToList());
+            this.cbApartmentType.LoadItemsToComboBox(HomeInsuranceRiskItemsMapping.ApartmentType.Keys.ToList());
             googlePlacesService = new GooglePlacesService();
         }
 
@@ -92,9 +99,24 @@ namespace TestProjectAIG.Views
             // Continue to the next form or process the address
             string street = txtStreet.Text;
             string city = txtCity.Text;
-            // Handle the address
-            FinishForm form5 = new FinishForm();
-            form5.Show();
+
+            PolicyService policyService = new PolicyService();
+
+            var homeInsuranceDetails = new HomeInsuranceDetails
+            {
+                ApartmentType = cbApartmentType.SelectedItem.ToString(),
+                StructureType = cbStructureType.SelectedItem.ToString(),
+                Age = float.Parse(txtAge.Text),
+                HomeSize = float.Parse(txtHomeSize.Text),
+            };
+
+            double price = policyService.CalculateHomeInsurancePolicy(homeInsuranceDetails);
+
+            FinishForm finishForm = new FinishForm();
+
+            finishForm.DisplayResults($"עלות הביטוח הדירה הוא: {price}");
+
+            finishForm.Show();
             this.Hide();
         }
     }
