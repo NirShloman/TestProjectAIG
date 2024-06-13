@@ -128,7 +128,7 @@ namespace TestProjectAIG.Views
                 MessageBox.Show("הנתונים תקינים ונשלחו בהצלחה.");
                 FinishForm finishForm = new FinishForm();
 
-                finishForm.DisplayResults($"עלות הביטוח הדירה הוא: {price}");
+                finishForm.DisplayResults($"עלות ביטוח הדירה הוא: {price}");
 
                 finishForm.Show();
                 this.Hide();
